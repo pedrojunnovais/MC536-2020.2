@@ -1,3 +1,3 @@
 # MC536-2020.2
-Aluno\n
+Aluno
 Pedro Jun Novais
