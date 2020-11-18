@@ -6,7 +6,7 @@ Escreva uma sentença em Cypher que crie o medicamento de nome `Metamizole`, có
 
 ### Resolução
 ~~~cypher
-(escreva aqui a resolução em Cypher)
+CREATE (:Drug {drugbank: "DB04817", name: "Metamizole"})
 ~~~
 
 ## Exercício 2
@@ -15,7 +15,9 @@ Considerando que a `Dipyrone` e `Metamizole` são o mesmo medicamento com nomes 
 
 ### Resolução
 ~~~cypher
-(escreva aqui a resolução em Cypher)
+MATCH (d:Drug {name:"Dipyrone"})
+MATCH (m:Drug {name:"Metamizole"})
+CREATE (d)-[:SameAs]->(m)
 ~~~
 
 ## Exercício 3
@@ -24,7 +26,8 @@ Use o `DELETE` para excluir o relacionamento que você criou (apenas ele).
 
 ### Resolução
 ~~~cypher
-(escreva aqui a resolução em Cypher)
+MATCH (d)-[DE1:SameAs]->(m)
+DELETE DE1
 ~~~
 
 ## Exercício 4
@@ -33,7 +36,8 @@ Faça a projeção em relação a Patologia, ou seja, conecte patologias que sã
 
 ### Resolução
 ~~~cypher
-(escreva aqui a resolução em Cypher)
+MATCH (patologia1:Pathology)-[a1]->(d:Drug)<-[a2]-(patologia2:Pathology)
+MERGE (patologia1)<-[r:Relates]->(patologia2)
 ~~~
 
 ## Exercício 5
