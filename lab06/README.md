@@ -57,6 +57,6 @@ Que tipo de análise interessante pode ser feita com esse grafo?
 Proponha um tipo de análise e escreva uma sentença em Cypher que realize a análise.
 
 ### Resolução
-Nesse caso seria interessante criar um grafo que liga todos medicamentos com os mesmos efeitos colaterias.
+Nesse caso seria interessante criar um grafo que liga todos medicamentos com os mesmos efeitos colaterias, pois assim poderíamos rastear todos medicamento que causam efeitos indesejados em determinado paciente.
 ~~~cypher
 ~~~
