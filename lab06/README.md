@@ -46,7 +46,8 @@ Construa um grafo ligando os medicamentos aos efeitos colaterais (com pesos asso
 
 ### Resolução
 ~~~cypher
-(escreva aqui a resolução em Cypher)
+MATCH (medicamento:DRUG)
+MATCH (efeitoColateral:SideEffect)
 ~~~
 
 ## Exercício 6
