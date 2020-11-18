@@ -58,5 +58,5 @@ Proponha um tipo de análise e escreva uma sentença em Cypher que realize a an�
 
 ### Resolução
 ~~~cypher
-(escreva aqui a resolução em Cypher)
+#Nesse caso seria interessante criar um grafo que liga todos medicamentos com os mesmos efeitos colaterias.
 ~~~
