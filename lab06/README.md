@@ -48,6 +48,8 @@ Construa um grafo ligando os medicamentos aos efeitos colaterais (com pesos asso
 ~~~cypher
 MATCH (medicamento:DRUG)
 MATCH (efeitoColateral:SideEffect)
+CREATE (medicamento)-[:causa_efeitoColateral]->(efeitoColateral)
+WHERE medicamento.drugbank = efeitoColateral.drugbank
 ~~~
 
 ## Exercício 6
@@ -57,6 +59,11 @@ Que tipo de análise interessante pode ser feita com esse grafo?
 Proponha um tipo de análise e escreva uma sentença em Cypher que realize a análise.
 
 ### Resolução
-Nesse caso seria interessante criar um grafo que liga todos medicamentos com os mesmos efeitos colaterias, pois assim poderíamos rastear todos medicamento que causam efeitos indesejados em determinado paciente.
+Nesse caso seria interessante criar um grafo que liga todos medicamentos que causam os mesmos efeitos colaterias, pois assim poderíamos rastear todos medicamento que causam efeitos indesejados em determinado paciente.
 ~~~cypher
+MATCH (medicamento1:DRUG)
+MATCH (medicamento2:DRUG)
+MATCH (efeitoColateral:SideEffect)
+CREATE (medicamento1)-[:liga_medicamentos2]->(medicamento2)
+WHERE medicamento1.drugbank = efeitoColateral.drugbank AND medicamento2.drugbank = efeitoColateral.drugbank
 ~~~
