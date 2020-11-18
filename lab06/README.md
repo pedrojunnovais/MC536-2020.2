@@ -64,6 +64,6 @@ Nesse caso seria interessante criar um grafo que liga todos medicamentos que cau
 MATCH (medicamento1:DRUG)
 MATCH (medicamento2:DRUG)
 MATCH (efeitoColateral:SideEffect)
-CREATE (medicamento1)-[:liga_medicamentos2]->(medicamento2)
+CREATE (medicamento1)-[:liga_medicamentos]->(medicamento2)
 WHERE medicamento1.drugbank = efeitoColateral.drugbank AND medicamento2.drugbank = efeitoColateral.drugbank
 ~~~
