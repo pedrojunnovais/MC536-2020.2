@@ -8,7 +8,9 @@ Construa uma comando SELECT que retorne dados equivalentes a este XPath
 
 ### Resolução
 ~~~xquery
-(escreva aqui a resolução em XPath)
+for $i in ($fichariodoc//individuo)
+where $i[idade>20]
+return {data($i/@nome)}
 ~~~
 
 ## Questão 2
@@ -23,7 +25,9 @@ return {data($i/@nome)}
 ~~~
 ### Resolução
 ~~~xquery
-//individuo[idade>17]/@nome
+let $fichariodoc := doc('https://raw.githubusercontent.com/santanche/lab2learn/master/xml/fichario.xml')
+for $i in ($fichariodoc//individuo[idade>17])
+return {data($i/@nome)}
 ~~~
 
 ## Questão 3
@@ -54,7 +58,10 @@ Retorne a categoria cujo `<label>` em inglês seja 'e-Science Domain'.
 
 ### Resolução
 ~~~xquery
-(escreva aqui a resolução em XQuery)
+let $publicadoc := doc('http://www.ic.unicamp.br/~santanch/publications/publications.xml')
+for $i in ($publicadoc//categories/category)
+where $i/label[@lang='en-US'] = 'e-Science Domain'
+return $i
 ~~~
 
 ## Questão 6
@@ -62,7 +69,9 @@ Retorne as publicações associadas à categoria cujo `<label>` em inglês seja 
 
 ### Resolução
 ~~~xquery
-(escreva aqui a resolução em XQuery)
+let $publicadoc := doc('http://www.ic.unicamp.br/~santanch/publications/publications.xml')
+for $i in ($publicadoc//categories/category[label[@lang='en-US'] = 'e-Science Domain'])
+return $i
 ~~~
 
 ## Tarefas com DRON e PubChem
@@ -73,7 +82,7 @@ Liste o nome de todas as classificações que estão apenas dois níveis imediat
 
 ### Resolução
 ~~~xquery
-(escreva aqui a resolução em XQuery)
+return {data($dron//drug/drug/@name)}
 ~~~
 
 ## Questão 2
