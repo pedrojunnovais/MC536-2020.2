@@ -23,7 +23,7 @@ return {data($i/@nome)}
 ~~~
 ### Resolução
 ~~~xquery
-(escreva aqui a resolução em XQuery)
+//individuo[idade>17]/@nome
 ~~~
 
 ## Questão 3
@@ -38,7 +38,7 @@ return {data($i/@nome)}
 
 ### Resolução
 ~~~sql
-(escreva aqui a resolução em SQL)
+select nome from individuo where idade > 17;
 ~~~
 
 ## Questão 4
@@ -46,7 +46,7 @@ Retorne quantas publicações são posteriores ao ano de 2011.
 
 ### Resolução
 ~~~xquery
-(escreva aqui a resolução em XQuery)
+return count($publicadoc//publication[year>2011])
 ~~~
 
 ## Questão 5
